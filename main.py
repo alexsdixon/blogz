@@ -157,9 +157,7 @@ def newpost():
         new_post = Blog(name, b_info, owner)
         db.session.add(new_post)
         db.session.commit()
-        #page_id = User.query.filter_by(id=new_post.owner.id).first()
         page_id = "/blog?id=" + str (new_post.id)
-        #return redirect("/blog?blog_name="+name)
         return redirect (page_id)
     else:
         return render_template("newpost.html",
